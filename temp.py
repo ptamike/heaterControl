@@ -7,7 +7,7 @@ os.system('sudo modprobe w1-therm') # load tem module
 
 
 while(1):
-	"Repeatedly read and print the results from two 1-wire sensors
+	"Repeatedly read and print the results from two 1-wire sensors"
 
 	tfile = open("/sys/bus/w1/devices/28-000004d428de/w1_slave")
 	t1file = open("/sys/bus/w1/devices/28-000004d3f8b3/w1_slave")
