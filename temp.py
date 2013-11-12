@@ -1,6 +1,9 @@
 #! /usr/bin/python
 
 import os
+"This is a test module for the programmable heater project. This provides the code to
+""" setup and read the temperature from a couple of DS18B20+ 1-wire digital sensors"
+
 
 os.system('sudo modprobe w1-gpio') #load 1-wire interface
 os.system('sudo modprobe w1-therm') # load temp module
