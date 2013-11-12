@@ -3,7 +3,7 @@
 import os
 
 os.system('sudo modprobe w1-gpio') #load 1-wire interface
-os.system('sudo modprobe w1-therm') # load tem module
+os.system('sudo modprobe w1-therm') # load temp module
 
 
 while(1):
