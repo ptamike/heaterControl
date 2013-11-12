@@ -1,7 +1,7 @@
 heaterControl
 =============
 
-As my programmable heating control has failed I thought I'd make something better using the Raspberry Pi.
+As my programmable heating control has failed I thought I'd make something better using the Raspberry Pi!
 
 The design uses a 1-wire digital thermometer sensor to measure the room temperature and cheap RF modules
 and encoders from RF Solutions to handle the radio link.
@@ -15,4 +15,6 @@ For a future development I might add a second temp sensor to record the outside 
 temperature differential.
 
 Once this basic unit is working it would be relatively simple to expand the peripherals to control other devices.
+
+The initial software on this repo will comprise small python modules that are being used to test each section of the software.
 
