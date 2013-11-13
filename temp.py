@@ -51,7 +51,7 @@ def getTemp(sense1, sense2):
 while(1):
 	
 	# An endless test loop to fetch and print temperatures
-	# hit Ctl-C in the terminal to exit
+	# hit Ctl-C in the terminal to exitHi
 	
 	temp1, temp2 = getTemp(sense1, sense2)
 	
