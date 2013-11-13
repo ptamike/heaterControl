@@ -2,7 +2,7 @@
 
 
 # This is a test module for the RaspberryPi programmable thermostat
-# project. This module prepares and reads the temperature from a couple 
+# project. This module reads the temperature from a couple 
 # of DS18B20 1-wire digital sensors
 
 import os # we need this to load the 1-wire kernel modules
@@ -11,14 +11,15 @@ import os # we need this to load the 1-wire kernel modules
 os.system('sudo modprobe w1-gpio')
 os.system('sudo modprobe w1-therm')
 
-# Setup the 1-wire address of each sensor
-# NB: To find the addres, connect the sensors and run the two modprobe
-# commands from lines 11 & 12 above.
+
+# NB:To find the uniquue address of the DS18B20s,connect them to the Pi
+# and run the two modprobe commands from lines 11 & 12 above.
 # Navigate to '/sys/bus/w1/devices'dir and type 'ls'. You should see
 # the DS18B20 devices listed as 28-........... this is the file
 # address for each sensor. You can add as many as you like, just
-# connect them in parallel and the 1-wire module handles the calls
+# connect them in parallel and the 1-wire module handles the call.
 
+# Setup the 1-wire address of each sensor
 
 sense1 = "/sys/bus/w1/devices/28-000004d428de/w1_slave"
 sense2 = "/sys/bus/w1/devices/28-000004d3f8b3/w1_slave"
@@ -41,7 +42,7 @@ def getTemp(sense1, sense2):
 	temp1 = text1.split("\n")[1].split(" ")[9]
 	temp2 = text2.split("\n")[1].split(" ")[9]
 	
-	# Convert the 12-bit temperature to a conventional decimal
+	# Convert the 12-bit temperature to a decimal value
 	T1 = float((temp1[2:]))/1000
 	T2 = float((temp2[2:]))/1000
 	
@@ -51,7 +52,7 @@ def getTemp(sense1, sense2):
 while(1):
 	
 	# An endless test loop to fetch and print temperatures
-	# hit Ctl-C in the terminal to exitHi
+	# Hit Ctl-C in the terminal to exit
 	
 	temp1, temp2 = getTemp(sense1, sense2)
 	
