@@ -43,10 +43,10 @@ def getTemp(sense1, sense2):
 	return T1, T2
 
 
-while(1)
+while(1):
 	
 	temp1, temp2 = getTemp(sense1, sense2)
 	
-	print temp1 "C :: ", temp2, "C  " # print the result
+	print temp1, temp2 # print the result
 	
 	
