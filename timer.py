@@ -3,6 +3,10 @@
 import datetime
 import time
 
+"""This is a test module for the heater control. The function timerCheck returns the programmed temperature
+based on the settings in onTime, offTime, tempOn and tempOff this return value can then be used with temp.py
+module to determine whether the heater should be turned on."""
+
 onTime = 7 
 offTime = 21
 tempOn = 18.5 # sets the on temperature
