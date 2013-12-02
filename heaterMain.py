@@ -1,5 +1,13 @@
 #! /usr/bin/python
+""" A simple heating control system using a Raspberry Pi with a 1-wire digital
+temperature sensor and Adafruit capacitive touch switches. At the moment the timer 
+only uses the hour digit with the on and off times set by onTime and offTime. The temperature
+can be set with tempOn and tempOff. tempOff is set to 5C for frost protection.
+Holiday mode uses a toggle switch and forces the temperature to the off value.
+The Override switch changes the required temp to the on value for one hour.
+"""
 
+from datetime 
 import datetime
 import time
 import os # we need this to load the 1-wire kernel modules
