@@ -7,9 +7,10 @@ import RPi.GPIO as GPIO
 
 #Setup the GPIO pins 
 GPIO.setmode(GPIO.BOARD) # Set pin numbering
-GPIO.setup(11, GPIO.IN) # Holiday
-GPIO.setup(13, GPIO.IN) # Override
-
+GPIO.setup(11, GPIO.IN) # Holiday switch input
+GPIO.setup(13, GPIO.IN) # Override switch input
+GPIO.setup(15, GPIO.OUT, initial=0) # Initialise with heater off
+heater = 0 #only used for testing
 
 # Start by loading the kernel modules for 1-wire interface and sensor
 os.system('sudo modprobe w1-gpio')
@@ -60,7 +61,7 @@ def getTemp(sense1):
 	# Convert the 12-bit temperature to a decimal value
 	T1 = float((temp1[2:]))/1000
 	
-	return T1# return the temperatures
+	return T1# return the current temperature
 
 
 
@@ -80,7 +81,23 @@ while(1):
 	
 	tempNow = getTemp(sense1)
 	
-	print tempNow
+	print "Current Temp is: ",tempNow,"C"
+	
+	# Heater on/off decision
+	
+	if tempNow>(tempRqd+0.5): #Turn off when temp is +0.5C high
+		heater = 0
+		GPIO.output(15, 0)
+	elif tempNow<(tempRqd-0.5): #Turn on when temp is 0.5C low
+		heater = 1
+		GPIO.output(15, 1)
+		
+	if heater == 1:
+		print "Heater is ON"
+	else:
+		print "Heater is OFF"
+	
+	
 	
 	
 	
