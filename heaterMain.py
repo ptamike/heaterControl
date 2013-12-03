@@ -7,7 +7,6 @@ Holiday mode uses a toggle switch and forces the temperature to the off value.
 The Override switch changes the required temp to the on value for one hour.
 """
 
-from datetime 
 import datetime
 import time
 import os # we need this to load the 1-wire kernel modules
