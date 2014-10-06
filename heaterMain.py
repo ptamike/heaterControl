@@ -72,7 +72,7 @@ def getTemp(sense1):
 
 
 
-while(1):
+while(1): # Start a continuous loop
 	tempRqd = timerCheck(onTime, offTime) #Get the programmed temp	
 	print "programme Temperature: ", tempRqd
 	
